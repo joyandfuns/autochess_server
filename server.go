@@ -40,7 +40,7 @@ func SelectAllWeapon() ([]weapon, error) {
 	var weapons []weapon
 	for rows.Next() {
 		var w weapon
-		if err := rows.Scan(&w.Id, &w.Name, &w.Description, &w.Url, pq.Array(&w.Parent), pq.Array(&w.Child)); err != nil {
+		if err := rows.Scan(&w.Id, &w.Name, &w.Level, &w.Description, &w.Url, pq.Array(&w.Parent), pq.Array(&w.Child)); err != nil {
 			return nil, err
 		}
 		weapons = append(weapons, w)
